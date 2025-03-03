@@ -20,16 +20,6 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
-
-
-@app.get("/items/{item_id}")
-def read_item(item_id: int, q: Union[str, None] = None):
-    return {"item_id": item_id, "q": q}
-
-
 @app.get("/search", response_model=List[Dict[str, Any]])
 def search(q: str = Query(..., min_length=1, description="Search query"), 
            limit: Optional[int] = Query(10, ge=1, le=100, description="Maximum number of results")):

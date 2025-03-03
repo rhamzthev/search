@@ -91,7 +91,6 @@ The crawler automatically indexes content from specified start URLs, following l
 ## API Endpoints
 
 - `GET /search?q={query}`: Search for pages matching the query
-- `GET /items/{item_id}`: Retrieve specific item details
 
 ## Contributing
 
