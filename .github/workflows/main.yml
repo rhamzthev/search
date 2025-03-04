@@ -47,6 +47,7 @@ jobs:
           host: ${{ secrets.VM_HOST }}
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_KEY }}
+          password: ${{ secrets.VM_PASSWORD }}
           envs: DOCKERHUB_USERNAME, DOCKERHUB_ACCESS_TOKEN, DOCKERHUB_REPOSITORY_CLIENT, DOCKERHUB_REPOSITORY_SERVER, DB_HOST, DB_PASSWORD, DB_PORT, DB_NAME, DB_USER
           script: |
             # Navigate to the directory where Docker Compose is executed
