@@ -3,13 +3,13 @@ import re
 from fastapi import FastAPI, Query
 from fastapi.middleware.cors import CORSMiddleware
 
-from db.db import search_pages
+from .db.db import search_pages
 
 app = FastAPI()
 
 origins = [
+    "http://localhost:80",
     "http://localhost",
-    "http://localhost:5173",
 ]
 
 app.add_middleware(

@@ -1,0 +1,20 @@
+services:
+  server:
+    image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPOSITORY_SERVER}:latest
+    build: ./server
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_PORT=${DB_PORT}
+      - DB_NAME=${DB_NAME}
+      - DB_USER=${DB_USER}
+    ports:
+      - "8000:8000"
+  client:
+    image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPOSITORY_CLIENT}:latest
+    build: ./client
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - server

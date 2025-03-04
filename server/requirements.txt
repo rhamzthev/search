@@ -1,0 +1,6 @@
+beautifulsoup4
+psycopg
+python-dotenv
+psycopg-pool
+fastapi[standard]
+pydantic

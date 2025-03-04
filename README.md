@@ -37,7 +37,7 @@ A custom search engine that indexes and provides searchable access to all my por
 
 1. Create a virtual environment and install dependencies:
 ```bash
-cd backend
+cd server
 python -m venv venv
 source venv/bin/activate  # On Windows: .\venv\Scripts\activate
 pip install -r requirements.txt
@@ -52,21 +52,11 @@ DB_USER=your_db_user
 DB_PASSWORD=your_db_password
 ```
 
-3. Set up the database:
-```bash
-psql -U your_db_user -d your_db_name -f db/tables.sql
-```
-
-4. Start the backend server:
-```bash
-uvicorn main:app --reload
-```
-
 ### Frontend Setup
 
 1. Install dependencies:
 ```bash
-cd frontend
+cd client
 npm install
 ```
 
