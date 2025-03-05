@@ -13,4 +13,4 @@ FROM nginx:alpine
 COPY --from=build /usr/src/app/nginx/nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=build /usr/src/app/dist /usr/share/nginx/html
 
-EXPOSE 80
+EXPOSE 80 443
