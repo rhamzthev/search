@@ -23,7 +23,7 @@ function Search() {
 
     // Mock data for now - this would be replaced with actual API call
     setLoading(true)
-    fetch(`http://localhost:8000/search?q=${query}`)
+    fetch(`http://search.rhamzthev.com:8000/search?q=${query}`)
       .then(res => res.json())
       .then(data => {
         console.log(data)

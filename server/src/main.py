@@ -8,10 +8,8 @@ from .db.db import search_pages
 app = FastAPI()
 
 origins = [
-    "http://localhost",
-    "http://localhost:80",
-    "https://localhost",
-    "https://localhost:443",
+    "http://search.rhamzthev.com",
+    "https://search.rhamzthev.com",
     "http://localhost:5173",
 ]
 
