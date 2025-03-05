@@ -21,7 +21,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/search", response_model=List[Dict[str, Any]])
+@app.get("/api/search", response_model=List[Dict[str, Any]])
 def search(q: str = Query(..., min_length=1, description="Search query"), 
            limit: Optional[int] = Query(10, ge=1, le=100, description="Maximum number of results")):
     """
