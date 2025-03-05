@@ -8,9 +8,11 @@ from .db.db import search_pages
 app = FastAPI()
 
 origins = [
-    "http://localhost:80",
-    "http://localhost:5173",
     "http://localhost",
+    "http://localhost:80",
+    "https://localhost",
+    "https://localhost:443",
+    "http://localhost:5173",
 ]
 
 app.add_middleware(
