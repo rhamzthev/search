@@ -5,7 +5,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from .db.db import search_pages
 
-app = FastAPI()
+app = FastAPI(root_path="/api")
 
 origins = [
     "http://search.rhamzthev.com",

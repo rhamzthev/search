@@ -10,6 +10,8 @@ services:
       - DB_USER=${DB_USER}
     ports:
       - "8000:8000"
+    networks:
+      - search_network
   client:
     image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPOSITORY_CLIENT}:latest
     build: ./client
@@ -20,3 +22,9 @@ services:
       - "443:443"
     depends_on:
       - server
+    networks:
+      - search_network
+
+networks:
+  search_network:
+    driver: bridge
