@@ -26,7 +26,6 @@ function Search() {
     fetch(`/api/search?q=${query}`)
       .then(res => res.json())
       .then(data => {
-        console.log(data)
         setResults(data)
       }).finally(() => {
         setLoading(false)
