@@ -13,6 +13,8 @@ services:
   client:
     image: ${DOCKERHUB_USERNAME}/${DOCKERHUB_REPOSITORY_CLIENT}:latest
     build: ./client
+    volumes:
+      - /etc/letsencrypt:/etc/letsencrypt
     ports:
       - "80:80"
       - "443:443"
