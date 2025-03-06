@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useSearchParams, Link, useNavigate } from 'react-router'
-import './Search.css'
+import styles from './Search.module.css'
 
 interface SearchResult {
   id: number
@@ -21,7 +21,6 @@ function Search() {
   useEffect(() => {
     if (!query) return
 
-    // Mock data for now - this would be replaced with actual API call
     setLoading(true)
     fetch(`/api/search?q=${query}`)
       .then(res => res.json())
@@ -40,39 +39,40 @@ function Search() {
   }
 
   return (
-    <div className="search-page">
-      <header className="search-header">
-        <div className="header-content">
-          <Link to="/" className="logo-small">Rhamsez Thevenin</Link>
+    <div className={`${styles['search-page']} container`}>
+      <header className={styles['search-header']}>
+        <div className={styles['header-content']}>
+          <Link to="/" className={styles['logo-link']}>Rhamsez Thevenin</Link>
 
-          <form onSubmit={handleSearch} className="search-form">
-            <div className="search-box">
+          <form onSubmit={handleSearch} className={styles['search-form']}>
+            <div className={styles['search-box']}>
               <input
                 type="text"
+                className={styles['search-input']}
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="Search my websites..."
                 aria-label="Search query"
                 autoFocus={!query}
               />
-              <button type="submit" className="search-button" aria-label="Search">
-                <span className="search-icon">🔍</span>
+              <button type="submit" className={styles['search-button']} aria-label="Search">
+                <span>🔍</span>
               </button>
             </div>
           </form>
 
-          <nav className="main-nav">
-            <a href="https://linkedin.com/in/rhamzthev" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-            <a href="https://github.com/rhamzthev" target="_blank" rel="noopener noreferrer">GitHub</a>
-            <a href="/resume" className="resume-btn">Resume</a>
+          <nav className={styles['nav-links']}>
+            <a href="https://linkedin.com/in/rhamzthev" target="_blank" rel="noopener noreferrer" className={styles['nav-link']}>LinkedIn</a>
+            <a href="https://github.com/rhamzthev" target="_blank" rel="noopener noreferrer" className={styles['nav-link']}>GitHub</a>
+            <a href="/resume" className={styles['resume-link']}>Resume</a>
           </nav>
         </div>
       </header>
 
-      <main className="search-results-container">
+      <main className={styles['search-results']}>
         {loading ? (
-          <div className="loading-indicator">
-            <div className="spinner"></div>
+          <div className={styles['loading']}>
+            <div className={styles['spinner']}></div>
             <p>Searching...</p>
           </div>
         ) : (
@@ -80,27 +80,29 @@ function Search() {
             {query && (
               results.length > 0 ? (
                 <>
-                  <div className="results-info">
+                  <div className={styles['results-info']}>
                     <p>About {results.length} results for "<strong>{query}</strong>"</p>
                   </div>
-                  <div className="results-list">
+                  <div className={styles['results-list']}>
                     {results.map((result) => (
-                      <article key={result.id} className="result-item">
-                        <a href={result.url} target="_blank" rel="noopener noreferrer" className="result-url">
+                      <article key={result.id} className={styles['result-item']}>
+                        <a href={result.url} target="_blank" rel="noopener noreferrer" className={styles['result-url']}>
                           {result.url}
                         </a>
-                        <h3><a href={result.url} target="_blank" rel="noopener noreferrer" className="result-title" style={{textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden', display: 'block'}}>{result.title}</a></h3>
-                        <p className="result-description">{result.description}</p>
+                        <h3>
+                          <a href={result.url} target="_blank" rel="noopener noreferrer" className={styles['result-title']}>
+                            {result.title}
+                          </a>
+                        </h3>
+                        <p className={styles['result-description']}>{result.description}</p>
                       </article>
                     ))}
                   </div>
                 </>
               ) : (
-                <div className="results-info">
-                  <div className="no-results">
-                    <h2>No results found for "<strong>{query}</strong>"</h2>
-                    <p>Try different keywords or check your spelling.</p>
-                  </div>
+                <div className={styles['no-results']}>
+                  <h2>No results found for "<strong>{query}</strong>"</h2>
+                  <p>Try different keywords or check your spelling.</p>
                 </div>
               )
             )}

@@ -2,16 +2,13 @@
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
 }
 
 .search-header {
   position: sticky;
   top: 0;
   background-color: var(--bg-primary);
-  padding: 15px 0;
+  padding: 1rem 0;
   border-bottom: 1px solid var(--border);
   z-index: 100;
 }
@@ -19,10 +16,10 @@
 .header-content {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 3rem;
 }
 
-.logo-small {
+.logo-link {
   font-size: 1.2rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -39,8 +36,8 @@
   width: 100%;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 0 16px;
+  border-radius: 4px;
+  padding: 0 1rem;
   height: 40px;
   transition: all 0.2s ease;
 }
@@ -51,11 +48,11 @@
   box-shadow: 0 0 0 1px var(--accent-muted);
 }
 
-.search-box input {
+.search-input {
   flex: 1;
   border: none;
   outline: none;
-  font-size: 16px;
+  font-size: 1rem;
   background: transparent;
   color: var(--text-primary);
 }
@@ -64,7 +61,7 @@
   background: transparent;
   border: none;
   cursor: pointer;
-  padding: 0 8px;
+  padding: 0 1rem;
   color: var(--text-secondary);
   transition: color 0.2s ease;
 }
@@ -73,45 +70,45 @@
   color: var(--accent);
 }
 
-.main-nav {
+.nav-links {
   display: flex;
   align-items: center;
-  gap: 20px;
+  gap: 3rem;
 }
 
-.main-nav a {
+.nav-link {
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
-.main-nav a:hover {
-  color: var(--accent);
+.nav-link:hover {
+  color: var(--text-primary);
 }
 
-.resume-btn {
+.resume-link {
   background: var(--accent);
   color: var(--text-primary) !important;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-.resume-btn:hover {
+.resume-link:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
-.search-results-container {
-  padding: 24px 0;
+.search-results {
+  padding: 2rem 0;
   flex: 1;
 }
 
-.loading-indicator {
+.loading {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 40px 0;
+  padding: 2rem 0;
   color: var(--text-secondary);
 }
 
@@ -122,7 +119,7 @@
   width: 24px;
   height: 24px;
   animation: spin 1s linear infinite;
-  margin-bottom: 12px;
+  margin-bottom: 1rem;
 }
 
 @keyframes spin {
@@ -131,33 +128,31 @@
 }
 
 .results-info {
-  margin-bottom: 24px;
+  margin-bottom: 2rem;
   color: var(--text-secondary);
-  font-size: 14px;
-  text-align: left;
+  font-size: 0.9rem;
 }
 
 .no-results {
   text-align: center;
-  padding: 40px 0;
+  padding: 2rem 0;
 }
 
 .no-results h2 {
-  color: #202124;
-  font-size: 20px;
+  color: var(--text-primary);
+  font-size: 1.25rem;
   font-weight: 400;
-  margin-bottom: 10px;
+  margin-bottom: 1rem;
 }
 
 .results-list {
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  align-items: flex-start;
+  gap: 1rem;
 }
 
 .result-item {
-  padding-bottom: 24px;
+  padding-bottom: 1rem;
   border-bottom: 1px solid var(--border);
   width: 100%;
   text-align: left;
@@ -165,15 +160,20 @@
 
 .result-url {
   color: var(--text-secondary);
-  font-size: 14px;
-  margin-bottom: 4px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+  display: block;
 }
 
 .result-title {
   color: var(--accent);
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
   font-weight: 500;
+  display: block;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
 }
 
 .result-title:hover {
@@ -182,7 +182,7 @@
 
 .result-description {
   color: var(--text-secondary);
-  font-size: 14px;
+  font-size: 0.9rem;
   line-height: 1.5;
 }
 
@@ -190,21 +190,22 @@
   .header-content {
     flex-direction: column;
     align-items: stretch;
+    gap: 1rem;
   }
   
   .search-form {
     order: 2;
   }
   
-  .main-nav {
+  .nav-links {
     order: 3;
     justify-content: center;
-    margin-top: 16px;
+    margin-top: 1rem;
   }
   
-  .logo-small {
+  .logo-link {
     order: 1;
     text-align: center;
-    margin-bottom: 16px;
+    margin-bottom: 1rem;
   }
 } 

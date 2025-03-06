@@ -47,83 +47,74 @@
 }
 
 .header {
-  padding: 1.5rem 0;
-  z-index: 200;
+  padding: 1rem 0;
+  display: flex;
+  justify-content: flex-end;
+  position: relative;
+  z-index: 10;
 }
 
-.header nav {
+.nav-links {
   display: flex;
   align-items: center;
-  justify-content: flex-end;
-  gap: 20px;
+  gap: 3rem;
 }
 
-.header a {
+.nav-link {
   color: var(--text-secondary);
-  font-size: 14px;
-  text-decoration: none;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
 }
 
-.header a:hover {
-  color: var(--accent);
+.nav-link:hover {
+  color: var(--text-primary);
 }
 
-.resume-btn {
+.resume-link {
   background: var(--accent);
   color: var(--text-primary) !important;
-  padding: 8px 16px;
+  padding: 0.5rem 1rem;
   border-radius: 4px;
   transition: all 0.2s ease;
 }
 
-.resume-btn:hover {
-  background: var(--accent-hover);
-  transform: translateY(-1px);
-}
-
-.signin-btn {
-  background: var(--accent);
-  color: var(--text-primary);
-  padding: 8px 24px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-.signin-btn:hover {
+.resume-link:hover {
   background: var(--accent-hover);
   transform: translateY(-1px);
 }
 
 .search-container {
-  flex-grow: 1;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-top: -10vh;
+  position: relative;
+  z-index: 1;
 }
 
-.logo {
-  font-size: 4rem;
-  margin-bottom: 2.5rem;
-  color: var(--text-primary);
+.logo-title {
+  font-size: 3rem;
   font-weight: 700;
+  margin-bottom: 2rem;
   letter-spacing: -1px;
+}
+
+.search-box-container {
+  width: 100%;
+  max-width: 584px;
+  margin-bottom: 2rem;
 }
 
 .search-box {
   display: flex;
   align-items: center;
-  max-width: 584px;
-  width: 90%;
+  width: 100%;
   height: 50px;
   background: var(--bg-secondary);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  padding: 0 20px;
+  border-radius: 4px;
+  padding: 0 1rem;
   transition: all 0.2s ease;
 }
 
@@ -133,92 +124,67 @@
   box-shadow: 0 0 0 1px var(--accent-muted);
 }
 
-.search-box input {
+.search-input {
   flex: 1;
   height: 100%;
   border: none;
   outline: none;
-  font-size: 1rem;
   background: transparent;
   color: var(--text-primary);
+  font-size: 1rem;
 }
 
-.search-box input::placeholder {
+.search-input::placeholder {
   color: var(--text-secondary);
 }
 
-.search-icons {
+.search-icon {
   color: var(--text-secondary);
   cursor: pointer;
   transition: color 0.2s ease;
 }
 
-.search-icons:hover {
+.search-icon:hover {
   color: var(--accent);
 }
 
-.search-buttons {
-  display: flex;
-  gap: 1rem;
-}
-
-.search-buttons button {
-  background: var(--bg-secondary);
-  border: none;
-  border-radius: 6px;
-  color: var(--text-primary);
-  padding: 0 20px;
-  height: 40px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.search-buttons button:hover {
-  background: rgba(255, 255, 255, 0.1);
-  transform: translateY(-1px);
-}
-
-footer {
-  border-radius: 12px;
+.footer {
   margin-top: auto;
-  background: var(--bg-secondary);
+  padding: var(--space-md) 0;
+  border-top: 1px solid var(--border);
 }
 
-.footer-top {
-  padding: 15px 30px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-secondary);
-}
-
-.footer-bottom {
-  padding: 15px 30px;
+.footer-content {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
 }
 
-.footer-left, .footer-right {
+.footer-links {
   display: flex;
-  gap: 1.5rem;
+  gap: var(--space-lg);
 }
 
-footer a {
+.footer-link {
   color: var(--text-secondary);
-  text-decoration: none;
-  transition: color 0.2s ease;
+  font-size: 0.9rem;
 }
 
-footer a:hover {
+.footer-link:hover {
   color: var(--text-primary);
 }
 
 @media (max-width: 768px) {
-  .footer-bottom {
-    flex-direction: column;
-    gap: 1rem;
+  .logo-title {
+    font-size: 2.5rem;
   }
   
-  .footer-left, .footer-right {
-    justify-content: center;
+  .search-box-container {
+    width: 90%;
+  }
+  
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-md);
+    align-items: center;
   }
 }
