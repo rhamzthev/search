@@ -1,6 +1,6 @@
 # Search Engine
 
-A personal search engine application that crawls, indexes, and provides search capabilities across multiple websites.
+A personal search engine application that crawls, indexes, and provides search capabilities across multiple websites!
 
 ## Description
 
